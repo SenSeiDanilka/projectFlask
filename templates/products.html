@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="/static/css/products.css">
+{% endblock styles %}
+
+{% block title %}Golden Vision. Каталог{% endblock title %}
+
+{% block main %}
+    <form method="post">
+        <label for="min">От (руб.):</label>
+        <input type="number" name="min" id="min">
+
+        <label for="max">До (руб.):</label>
+        <input type="number" name="max" id="max">
+
+        <input type="submit" value="Найти">
+    </form>
+
+    <div class="container">
+        {% for product in products %}
+            <article>
+                <h2>{{ product[1] }}</h2>
+                <p>{{ product[3] }}</p>
+                <h4 class="price">{{ product[2] }}</h4>
+            </article>
+        {% endfor %}
+    </div>
+    
+{% endblock main %}

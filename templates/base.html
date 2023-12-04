@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/css/style.css">
+    {% block styles %}{% endblock styles %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <header>
+        <a href="/" class="menu-btns">Главная</a>
+        <a href="/products" class="menu-btns">Товары</a>
+        <a href="/contacts" class="menu-btns">Контакты</a>
+    </header>
+
+    <main>
+        {% block main %}{% endblock main %}
+    </main>
+
+    <footer>
+        @Все права защищены
+    </footer>
+</body>
+</html>
