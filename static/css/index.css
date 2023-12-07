@@ -1,0 +1,9 @@
+.logo-text {
+    text-align: center;
+}
+
+.main-img {
+    height: 500px;
+    background-image: url("/static/img/bg.jpg");
+    background-size: cover;
+}
