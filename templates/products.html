@@ -20,9 +20,10 @@
     <div class="container">
         {% for product in products %}
             <article>
-                <h2>{{ product[1] }}</h2>
+                <h2>{{ product[1] }}</h2> 
                 <p>{{ product[3] }}</p>
                 <h4 class="price">{{ product[2] }}</h4>
+                <img src="{{ product[4] }}" alt="очки">
             </article>
         {% endfor %}
     </div>
