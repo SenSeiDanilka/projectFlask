@@ -1,6 +1,10 @@
 import sqlite3
+from os import path
 
-connection = sqlite3.connect("base.db")
+absPath = path.join(path.dirname(path.dirname(__file__)), "base.db")
+print(absPath)
+
+connection = sqlite3.connect(absPath)
 cursor = connection.cursor()
 
 cursor.execute("CREATE TABLE products (id INTEGER PRIMARY KEY, title TEXT, price REAL, desc TEXT, image TEXT)")
