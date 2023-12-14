@@ -4,4 +4,27 @@
 
 {% block main %}
     <p>Здраствуйте, {{ login }}</p>
+
+     {% for product in products %}
+        <p>Id: {{ product[0] }}; Название: {{ product[1] }}; Цена: {{ product[2] }}</p>
+     {% endfor %}
+
+     <form method="post" enctype="multipart/form-data">
+        <label for="id">ID:</label>
+        <input type="number" name="id" id="id">
+
+        <label for="title">Название товара:</label>
+        <input type="text" name="title" id="title">
+
+        <label for="price">Цена товара:</label>
+        <input type="number" name="price" id="price">
+
+        <label for="desc">Описание товара:</label>
+        <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
+
+        <label for="photo">Изображение товара:</label>
+        <input type="file" name="photo" id="photo">
+
+        <input type="submit" value="Добавить товар">
+     </form>
 {% endblock main %}

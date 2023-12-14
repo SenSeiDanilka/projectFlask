@@ -40,3 +40,16 @@ def getUser(login, password):
     connection.close()
 
     return result
+
+def addProduct(idProduct, title, price, desc, pathPhoto):
+    connection = sqlite3.connect("base.db")
+    cursor = connection.cursor()
+
+    cursor.execute('''
+        INSERT INTO products
+        VALUES (?, ?, ?, ?, ?)
+    ''', (idProduct, title, price, desc, pathPhoto))
+
+    connection.commit()
+
+    connection.close()
