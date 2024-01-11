@@ -53,3 +53,17 @@ def addProduct(idProduct, title, price, desc, pathPhoto):
     connection.commit()
 
     connection.close()
+    
+def deleteProduct(idProduct):
+    connection = sqlite3.connect("base.db")
+    cursor = connection.cursor()
+    
+    cursor.execute('''
+        DELETE FROM products
+        WHERE id = ?
+    ''', [idProduct])
+    
+    connection.commit()
+
+    connection.close()
+     

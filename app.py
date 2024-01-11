@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, session, redirect
-from db.models import getAllProducts, getRangeProducts, getUser, addProduct
+from db.models import getAllProducts, getRangeProducts, getUser, addProduct, deleteProduct
 from os import path
+import json
 
 app = Flask(__name__)
 app.secret_key = "secret key"
@@ -58,5 +59,12 @@ def adminLoginPage():
         else:
             return render_template("adminLogin.html", error="Логин или пароль введены неправильно")
 
+@app.route("/deleteProduct", methods=["POST"])
+def apiDeleteProduct():
+    print(request.json)
+    id = request.json
+    deleteProduct(int(id))
+    return json.dumps(getAllProducts())
+    
 
 app.run(debug=True)

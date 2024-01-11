@@ -5,9 +5,13 @@
 {% block main %}
     <p>Здраствуйте, {{ login }}</p>
 
-     {% for product in products %}
-        <p>Id: {{ product[0] }}; Название: {{ product[1] }}; Цена: {{ product[2] }}</p>
-     {% endfor %}
+      <div id="list-products">
+         {% for product in products %}
+            <p>Id: {{ product[0] }}; Название: {{ product[1] }}; Цена: {{ product[2] }}</p>
+            <button data-id="{{ product[0] }}" class="delete-product">Удалить запись</button>
+         {% endfor %}
+      </div>
+      
 
      <form method="post" enctype="multipart/form-data">
         <label for="id">ID:</label>
@@ -27,4 +31,6 @@
 
         <input type="submit" value="Добавить товар">
      </form>
+
+     <script src="/static/js/admin.js"></script>
 {% endblock main %}
